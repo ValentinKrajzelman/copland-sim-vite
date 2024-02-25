@@ -5,11 +5,10 @@ import DraggableApp from "./draggableApp";
 
 export interface aplicacion {
   id: number;
+  nombre: string;
   minimized: Boolean;
   startx: number;
   starty: number;
-  lastx: number;
-  lasty: number;
   z: number;
   component: ReactNode;
 }
@@ -28,8 +27,8 @@ const Inicio = () => {
               aplicacionActual={app}
               setAplicaciones={setAplicaciones}
               index={index}
-              currentActiva={index == activa}
               activa={activa}
+              currentActiva={index == activa}
               setActiva={setAplicacionActiva}
             />
           );

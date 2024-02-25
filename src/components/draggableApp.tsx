@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 
 import { aplicacion } from "./inicio";
 
+import x from '/x.svg';
+
 interface props {
   aplicaciones: aplicacion[];
   aplicacionActual: aplicacion;
@@ -14,19 +16,14 @@ interface props {
 
 const DraggableApp = ({
   aplicacionActual,
-  aplicaciones,
-  setAplicaciones,
   index,
   currentActiva,
-  activa,
-  setActiva
+  setActiva,
 }: props) => {
-  //con lo useRef devolvemos un objeto con el contenido de los elementos,
-  //con la propiedad ref
+  //con lo useRef devolvemos un objeto con el contenido
+  //de los elementos, con la propiedad ref
   const box = useRef<HTMLDivElement>(null);
   const bar = useRef<HTMLDivElement>(null);
-
-  
 
   //useRef sirve para manipular datos sin re-renderizar el dom
   const isClicked = useRef<boolean>(false);
@@ -37,8 +34,8 @@ const DraggableApp = ({
     lastX: number;
     lastY: number;
   }>({
-    startX: 0,
-    startY: 0,
+    startX: aplicacionActual.startx,
+    startY: aplicacionActual.starty,
     lastX: 0,
     lastY: 0,
   });
@@ -91,25 +88,44 @@ const DraggableApp = ({
   }, []);
 
   const minimizarApp = () => {
-    box.current.style.top =   `-100000px`;
-    box.current.style.left =  `-100000px`;
+    box.current.style.top = `-100000px`;
+    box.current.style.left = `-100000px`;
   };
 
   return (
-
-      <div ref={box} className="absolute border-2" style={{zIndex: currentActiva ? 10 : 0}}>
-        <div ref={bar} className="h-6 bg-blue-400">
-          <button
-            onClick={() => {
-              minimizarApp();
-            }}
-          >
-            A
-          </button>
+    <div
+      ref={box}
+      className="sombreadoRetro absolute"
+      style={{ zIndex: currentActiva ? 10 : 0 }}
+    >
+      <div ref={bar} className="bg-[#1A0DAC] h-[3.5rem] flex items-center">
+        <div className="flex grow items-center justify-center">
+          <div className="flex flex-col items-end mx-5 w-[35%] space-y-2">
+            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
+            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
+            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
+          </div>
+          <div className="text-white">-{aplicacionActual.nombre}-</div>
+          <div className="flex flex-col items-start mx-5 w-[35%] space-y-2">
+            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
+            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
+            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
+          </div>
         </div>
-        <div>{aplicacionActual.component}</div>
-      </div>
+        <div className="flex justify-center items-center w-[3rem]">
 
+        <button
+          onClick={() => {
+            minimizarApp();
+          }}
+          className="sombreadoRetro flex justify-center items-center w-5 h-5 p-1 bg-slate-300"
+        >
+          <img src={x}></img>
+        </button>
+          </div>
+      </div>
+      <div className="">{aplicacionActual.component}</div>
+    </div>
   );
 };
 

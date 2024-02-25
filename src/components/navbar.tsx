@@ -14,6 +14,9 @@ interface props {
   setAplicaciones: Function;
 }
 
+const screenWidth = window.screen.width;
+const screenHeight = window.screen.height;
+
 const Navbar = ({ aplicaciones, setAplicaciones }: props) => {
   return (
     <div>
@@ -21,35 +24,45 @@ const Navbar = ({ aplicaciones, setAplicaciones }: props) => {
         <BotonNavbar
           nombre="Links"
           descripcion=" info -Dev-"
+          x={screenWidth*0.8}
+          y={screenHeight*0.8}
           component={<Links />}
           aplicaciones={aplicaciones}
           setAplicaciones={setAplicaciones}
         />
         <BotonNavbar
           nombre="Help"
+          x={screenWidth*0.8}
+          y={screenHeight*0.8}
           descripcion=" docs v.1.5.3"
-          component={<Chat />}
-          aplicaciones={aplicaciones}
-          setAplicaciones={setAplicaciones}
-        />
-        <BotonNavbar
-          nombre="Mixer"
-          descripcion=" audio"
-          component={<Cmd />}
-          aplicaciones={aplicaciones}
-          setAplicaciones={setAplicaciones}
-        />
-        <BotonNavbar
-          nombre="Termianl (CMD)"
-          descripcion=" -help for a list"
           component={<Help />}
           aplicaciones={aplicaciones}
           setAplicaciones={setAplicaciones}
         />
         <BotonNavbar
+          nombre="Mixer"
+          x={screenWidth*0.8}
+          y={screenHeight*0.8}
+          descripcion=" audio"
+          component={<Musica />}
+          aplicaciones={aplicaciones}
+          setAplicaciones={setAplicaciones}
+        />
+        <BotonNavbar
+          nombre="CMD"
+          x={screenWidth*0.8}
+          y={screenHeight*0.8}
+          descripcion=" -help for a list"
+          component={<Cmd />}
+          aplicaciones={aplicaciones}
+          setAplicaciones={setAplicaciones}
+        />
+        <BotonNavbar
           nombre="Ask the Wired"
+          x={screenWidth*0.8}
+          y={screenHeight*0.8}
           descripcion=" she shall answer"
-          component={<Links />}
+          component={<Chat />}
           aplicaciones={aplicaciones}
           setAplicaciones={setAplicaciones}
         />

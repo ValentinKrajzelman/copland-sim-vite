@@ -8,30 +8,23 @@ interface props {
   nombre: String;
   descripcion: String;
   component: ReactNode;
+  x: number;
+  y: number;
 }
 
-const BotonNavbar = ({
-  nombre,
-  descripcion,
-  component,
-  aplicaciones,
-  setAplicaciones,
-}: props) => {
-  const handleClick = (
-    nombre: String,
-    component: ReactNode,
-    descripcion: String,
-  ) => {
+const BotonNavbar = ({nombre, x, y, descripcion, component, aplicaciones, setAplicaciones}: props) => {
+
+
+  const handleClick = () => {
     if (aplicaciones.length != 0) {
       setAplicaciones([
         ...aplicaciones,
         {
           id: 1,
+          nombre: nombre,
           minimized: false,
-          startx: 1,
-          starty: 1,
-          lastx: 1,
-          lasty: 1,
+          startx: x,
+          starty: y,
           z: 1,
           component: component,
         },
@@ -40,9 +33,11 @@ const BotonNavbar = ({
       setAplicaciones([
         {
           id: 1,
+          nombre: nombre,
           minimized: false,
-          x: 1,
-          y: 1,
+          startx: x,
+          starty: y,
+          z: 1,
           component: component,
         },
       ]);
@@ -52,7 +47,7 @@ const BotonNavbar = ({
   return (
     <button
       onClick={() => {
-        handleClick(nombre, component, descripcion);
+        handleClick();
       }}
       className="flex justify-start px-3 pl-7 py-1 text-white hover:bg-[#217553]"
     >
