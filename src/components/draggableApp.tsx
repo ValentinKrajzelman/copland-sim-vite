@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { aplicacion } from "./inicio";
 
-import x from '/x.svg';
+import x from "/x.svg";
 
 interface props {
   aplicaciones: aplicacion[];
@@ -15,6 +15,8 @@ interface props {
 }
 
 const DraggableApp = ({
+  setAplicaciones,
+  aplicaciones,
   aplicacionActual,
   index,
   currentActiva,
@@ -36,12 +38,15 @@ const DraggableApp = ({
   }>({
     startX: aplicacionActual.startx,
     startY: aplicacionActual.starty,
-    lastX: 0,
-    lastY: 0,
+    lastX: aplicacionActual.startx,
+    lastY: aplicacionActual.starty,
   });
 
   useEffect(() => {
     if (!box.current || !bar.current) return;
+    box.current.style.top = aplicacionActual.starty+"px";
+    box.current.style.left = aplicacionActual.startx+"px";
+
     //box cur se usa para la posicion absolute del elemento
     const boxCur = box.current;
     //bar cur se utiliza para recibir el evento de click
@@ -53,11 +58,13 @@ const DraggableApp = ({
       coords.current.startX = e.clientX;
       coords.current.startY = e.clientY;
     };
+
     const onMouseUp = (e: MouseEvent) => {
       isClicked.current = false;
       coords.current.lastX = boxCur.offsetLeft;
       coords.current.lastY = boxCur.offsetTop;
     };
+    
     const onMouseMove = (e: MouseEvent) => {
       if (!isClicked.current) return;
       const nextX = e.clientX - coords.current.startX + coords.current.lastX;
@@ -65,6 +72,7 @@ const DraggableApp = ({
       boxCur.style.top = `${nextY}px`;
       boxCur.style.left = `${nextX}px`;
     };
+
     const onMouseClick = (e: MouseEvent) => {
       if (!isClicked.current) return;
       setActiva(index);
@@ -90,6 +98,9 @@ const DraggableApp = ({
   const minimizarApp = () => {
     box.current.style.top = `-100000px`;
     box.current.style.left = `-100000px`;
+    let aplicacionesAux = aplicaciones;
+    aplicacionesAux[index] = {...aplicacionActual, minimized: true}; 
+    setAplicaciones(aplicacionesAux);
   };
 
   return (
@@ -113,16 +124,15 @@ const DraggableApp = ({
           </div>
         </div>
         <div className="flex justify-center items-center w-[3rem]">
-
-        <button
-          onClick={() => {
-            minimizarApp();
-          }}
-          className="sombreadoRetro flex justify-center items-center w-5 h-5 p-1 bg-slate-300"
-        >
-          <img src={x}></img>
-        </button>
-          </div>
+          <button
+            onClick={() => {
+              minimizarApp();
+            }}
+            className="sombreadoRetro flex justify-center items-center w-5 h-5 p-1 bg-slate-300"
+          >
+            <img src={x}></img>
+          </button>
+        </div>
       </div>
       <div className="">{aplicacionActual.component}</div>
     </div>

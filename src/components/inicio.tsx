@@ -3,6 +3,8 @@ import Navbar from "./navbar";
 import { ReactNode, useState } from "react";
 import DraggableApp from "./draggableApp";
 
+import Appbar from "./appbar";
+
 export interface aplicacion {
   id: number;
   nombre: string;
@@ -23,6 +25,7 @@ const Inicio = () => {
         aplicaciones.map((app: aplicacion, index) => {
           return (
             <DraggableApp
+              key={index}
               aplicaciones={aplicaciones}
               aplicacionActual={app}
               setAplicaciones={setAplicaciones}
@@ -38,6 +41,9 @@ const Inicio = () => {
       </div>
       <div className="absolute left-5 top-5">
         <Navbar aplicaciones={aplicaciones} setAplicaciones={setAplicaciones} />
+      </div>
+      <div className="absolute left-5 bottom-5">
+        <Appbar aplicaciones={aplicaciones} />
       </div>
     </div>
   );

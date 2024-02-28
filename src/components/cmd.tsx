@@ -2,7 +2,10 @@
 
 const Cmd = () => {
   return (
-    <div>Cmd</div>
+    <div>
+        adsfasdfasdf
+
+    </div>
   )
 }
 

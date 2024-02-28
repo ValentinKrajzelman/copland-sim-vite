@@ -16,9 +16,10 @@ const Help = () => {
       <div className="sombreadoRetro p-[0.5rem] w-[12rem] h-[33rem] mr-[1rem] bg-[#D9D9D9]">
         <div className="text-3xl font-semibold mb-[1rem] text-blue-700">Subjects</div>
         <div>
-          {preguntas.map((preguntaActual) => {
+          {preguntas.map((preguntaActual, index) => {
             return (
               <button
+                key={index}
                 onClick={() => {
                   setPregunta({
                     indice: preguntaActual.indice,

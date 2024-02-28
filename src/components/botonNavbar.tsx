@@ -10,17 +10,18 @@ interface props {
   component: ReactNode;
   x: number;
   y: number;
+  id: number;
 }
 
-const BotonNavbar = ({nombre, x, y, descripcion, component, aplicaciones, setAplicaciones}: props) => {
+const BotonNavbar = ({nombre, x, y, descripcion, component, aplicaciones, setAplicaciones, id}: props) => {
 
 
   const handleClick = () => {
-    if (aplicaciones.length != 0) {
+    if (aplicaciones.length != 0 && !aplicaciones.find((aplicacion)=>{ return (aplicacion.id == id && aplicacion.minimized==false)})) {
       setAplicaciones([
         ...aplicaciones,
         {
-          id: 1,
+          id: id,
           nombre: nombre,
           minimized: false,
           startx: x,
@@ -29,10 +30,10 @@ const BotonNavbar = ({nombre, x, y, descripcion, component, aplicaciones, setApl
           component: component,
         },
       ]);
-    } else {
+    } else if (!(aplicaciones.length != 0)){
       setAplicaciones([
         {
-          id: 1,
+          id: id,
           nombre: nombre,
           minimized: false,
           startx: x,
