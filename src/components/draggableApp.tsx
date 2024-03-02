@@ -66,7 +66,7 @@ const DraggableApp = ({
     };
     
     const onMouseMove = (e: MouseEvent) => {
-      if (!isClicked.current) return;
+      if (!isClicked.current ) return;
       const nextX = e.clientX - coords.current.startX + coords.current.lastX;
       const nextY = e.clientY - coords.current.startY + coords.current.lastY;
       boxCur.style.top = `${nextY}px`;
@@ -79,8 +79,8 @@ const DraggableApp = ({
     };
 
     //asignamos los eventos a los ref
-    boxCur.addEventListener("mousedown", onMouseDown);
-    boxCur.addEventListener("mouseup", onMouseUp);
+    barCur.addEventListener("mousedown", onMouseDown);
+    barCur.addEventListener("mouseup", onMouseUp);
     boxCur.addEventListener("mousedown", onMouseClick);
     barCur.addEventListener("mousemove", onMouseMove);
     barCur.addEventListener("mouseleave", onMouseUp);
