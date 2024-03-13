@@ -4,6 +4,7 @@ import { ReactNode, useState } from "react";
 import DraggableApp from "./draggableApp";
 
 import Appbar from "./appbar";
+import DataRand from "./dataRand";
 
 export interface aplicacion {
   id: number;
@@ -37,13 +38,16 @@ const Inicio = () => {
           );
         })}
       <div className="flex h-screen w-screen justify-center bg-[#070420] ">
-        <img className="h-screen" src="/fondo.png"></img>
+        {/* <img className="h-screen" src="/fondo.png"></img> */}
       </div>
       <div className="absolute left-5 top-5">
         <Navbar aplicaciones={aplicaciones} setAplicaciones={setAplicaciones} />
       </div>
       <div className="absolute left-5 bottom-5">
         <Appbar aplicaciones={aplicaciones} />
+      </div>
+      <div className="absolute left-5 bottom-5">
+        < DataRand />
       </div>
     </div>
   );
