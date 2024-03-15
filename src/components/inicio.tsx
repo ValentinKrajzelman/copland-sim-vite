@@ -1,10 +1,12 @@
 import Navbar from "./navbar";
 
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import DraggableApp from "./draggableApp";
 
 import Appbar from "./appbar";
 import DataRand from "./dataRand";
+
+import { consulta } from "../api/chatCall";
 
 export interface aplicacion {
   id: number;
@@ -19,6 +21,15 @@ export interface aplicacion {
 const Inicio = () => {
   const [aplicaciones, setAplicaciones] = useState<aplicacion[]>([]);
   const [activa, setAplicacionActiva] = useState<number>(0);
+  // const [Laconsulta, setConsulta] = useState(consulta('asdf'));
+  
+
+  useEffect(()=>{
+    consulta('asdf').then(
+      (res)=>{console.log(res)}
+    )
+    // console.log();
+  },[])
 
   return (
     <div className="relative overflow-hidden h-screen w-screen">
@@ -46,7 +57,7 @@ const Inicio = () => {
       <div className="absolute left-5 bottom-5">
         <Appbar aplicaciones={aplicaciones} />
       </div>
-      <div className="absolute left-5 bottom-5">
+      <div className="absolute right-5 top-5">
         < DataRand />
       </div>
     </div>
