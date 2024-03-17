@@ -1,12 +1,10 @@
 import Navbar from "./navbar";
 
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import DraggableApp from "./draggableApp";
 
 import Appbar from "./appbar";
 import DataRand from "./dataRand";
-
-import { consulta } from "../api/chatCall";
 
 export interface aplicacion {
   id: number;
@@ -21,18 +19,47 @@ export interface aplicacion {
 const Inicio = () => {
   const [aplicaciones, setAplicaciones] = useState<aplicacion[]>([]);
   const [activa, setAplicacionActiva] = useState<number>(0);
-  // const [Laconsulta, setConsulta] = useState(consulta('asdf'));
-  
 
-  useEffect(()=>{
-    consulta('asdf').then(
-      (res)=>{console.log(res)}
-    )
-    // console.log();
-  },[])
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    // Autoplay with muted for better browser compatibility
+    video.muted = true;
+    video.autoplay = true;
+
+    // Play the video
+    video.play().catch((error) => {
+      // Handle autoplay failure
+      console.error('Failed to autoplay:', error);
+    });
+  }, []);
+
+
 
   return (
-    <div className="relative overflow-hidden h-screen w-screen">
+    <div className="relative h-screen w-screen overflow-hidden">
+      {/* <video className="absolute top-0 left-0 z-10" src="/copland inicio.mp4"/> */}
+      <div className="absolute z-10 bg-white"
+              style={{
+                animation: "degradadoFinal 5s linear 1 forwards",
+              }}>
+
+      <div
+        className="flex h-screen w-screen justify-center bg-black "
+        style={{
+          animation: "degradadoInicial 4s linear 1 forwards",
+        }}
+        >
+        <video
+          src="/OP.mp4"
+          ref={videoRef}
+          autoPlay
+          style={{ width: "auto", height: "100vh" }}
+          ></video>
+      </div>
+          </div>
       {aplicaciones &&
         aplicaciones.map((app: aplicacion, index) => {
           return (
@@ -48,17 +75,18 @@ const Inicio = () => {
             />
           );
         })}
-      <div className="flex h-screen w-screen justify-center bg-[#070420] ">
-        {/* <img className="h-screen" src="/fondo.png"></img> */}
+      
+      <div className="selector flex h-screen w-screen justify-center bg-[#070420] ">
+        <img className="selector h-screen" src="/fondo.png"></img>
       </div>
       <div className="absolute left-5 top-5">
         <Navbar aplicaciones={aplicaciones} setAplicaciones={setAplicaciones} />
       </div>
-      <div className="absolute left-5 bottom-5">
+      <div className="absolute bottom-5 left-5">
         <Appbar aplicaciones={aplicaciones} />
       </div>
       <div className="absolute right-5 top-5">
-        < DataRand />
+        <DataRand />
       </div>
     </div>
   );

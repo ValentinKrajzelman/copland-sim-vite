@@ -6,7 +6,7 @@ const DataRand = () => {
   const [nums, setNums] = useState(listaRand(5, 3, 5));
 
   useEffect(()=>{
-      setInterval(()=>{console.log(nums); setNums(listaRand(5, 3, 5))},3000)
+      setInterval(()=>{setNums(listaRand(5, 3, 5))},3000)
     },[])
 
   return <div>

@@ -9,8 +9,6 @@ interface props {
 const Appbar = ({ aplicaciones }: props) => {
   const [nums, setNums] = useState(listaRand(8, 3, 5));
 
-  console.log(nums);
-
   return (
     <div className="relative flex bg-[#6D754E] h-32 w-64 flex-wrap">
       <div className="absolute border-2 border-dashed top-0 left-0 h-16 w-16"></div>

@@ -2,6 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes degradadoFinal {
+  0% {
+    opacity: 100;
+  }
+  95% {
+    opacity: 100;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.selector {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+@keyframes degradadoInicial {
+  0% {
+    opacity: 100;
+  }
+  80% {
+    opacity: 100;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
 .sombreadoRetro {
   box-shadow: 0.5px 0.5px 2px 0.5px rgba(0, 0, 0, 1);
 }

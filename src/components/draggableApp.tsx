@@ -107,7 +107,7 @@ const DraggableApp = ({
     <div
       ref={box}
       className="sombreadoRetro absolute"
-      style={{ zIndex: currentActiva ? 10 : 0 }}
+      style={{ zIndex: currentActiva ? 1000 : 999 }}
     >
       <div ref={bar} className="bg-[#1A0DAC] h-[3.5rem] flex items-center">
         <div className="flex grow items-center justify-center">
