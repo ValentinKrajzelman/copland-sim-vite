@@ -74,7 +74,8 @@ const DraggableApp = ({
     };
 
     const onMouseClick = (e: MouseEvent) => {
-      if (!isClicked.current) return;
+      console.log('asdf')
+      // if (!isClicked.current) return;
       setActiva(index);
     };
 
@@ -109,18 +110,20 @@ const DraggableApp = ({
       className="sombreadoRetro absolute"
       style={{ zIndex: currentActiva ? 1000 : 999 }}
     >
-      <div ref={bar} className="bg-[#1A0DAC] h-[3.5rem] flex items-center">
+      <div ref={bar} className="bg-[#1A0DAC] h-[4rem] flex items-center">
         <div className="flex grow items-center justify-center">
-          <div className="flex flex-col items-end mx-5 w-[35%] space-y-2">
-            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
-            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
-            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
+          <div className="flex flex-col items-end mx-5 w-[20%] space-y-3">
+            {/* <div className="border-dotted w-full border-white border-t-[0.4rem]"></div> */}
+            <div className="border-dotted w-[60%] border-white border-t-[0.4rem] " ></div>
+            <div className="border-dotted w-[80%] border-white border-t-[0.4rem]"></div>
+            <div className="border-dotted w-full border-white border-t-[0.4rem]"></div>
           </div>
-          <div className="text-white">-{aplicacionActual.nombre}-</div>
-          <div className="flex flex-col items-start mx-5 w-[35%] space-y-2">
-            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
-            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
-            <div className="border-dotted w-full border-white border-t-[0.3rem]"></div>
+          <div className="text-white flex justify-center w-[8rem]">-{aplicacionActual.nombre}-</div>
+          <div className="flex flex-col items-start mx-5 w-[20%] space-y-3">
+            {/* <div className="border-dotted w-full border-white border-t-[0.4rem]"></div> */}
+            <div className="border-dotted w-[60%] border- border-white border-t-[0.4rem]"></div>
+            <div className="border-dotted w-[80%] border-white border-t-[0.4rem]"></div>
+            <div className="border-dotted w-full border-white border-t-[0.4rem]"></div>
           </div>
         </div>
         <div className="flex justify-center items-center w-[3rem]">

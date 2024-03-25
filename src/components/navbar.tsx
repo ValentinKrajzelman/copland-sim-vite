@@ -6,7 +6,7 @@ import Links from "./links";
 import Chat from "./chat";
 import Cmd from "./cmd";
 import Help from "./help";
-import Musica from "./musica";
+// import Musica from "./musica";
 
 interface props {
   aplicaciones: aplicacion[];
@@ -40,7 +40,7 @@ const Navbar = ({ aplicaciones, setAplicaciones }: props) => {
           aplicaciones={aplicaciones}
           setAplicaciones={setAplicaciones}
           />
-        <BotonNavbar
+        {/* <BotonNavbar
           id={3}
           nombre="Mixer"
           descripcion=" audio"
@@ -49,7 +49,7 @@ const Navbar = ({ aplicaciones, setAplicaciones }: props) => {
           component={<Musica />}
           aplicaciones={aplicaciones}
           setAplicaciones={setAplicaciones}
-          />
+          /> */}
         <BotonNavbar
           id={4}
           nombre="CMD"
