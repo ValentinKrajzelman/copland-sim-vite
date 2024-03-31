@@ -4,7 +4,8 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 import DraggableApp from "./draggableApp";
 
 import Appbar from "./appbar";
-import DataRand from "./dataRand";
+import Time from "./time";
+// import DataRand from "./dataRand";
 
 export interface aplicacion {
   id: number;
@@ -85,9 +86,12 @@ const Inicio = () => {
       <div className="absolute bottom-5 left-5">
         <Appbar aplicaciones={aplicaciones} />
       </div>
-      <div className="absolute right-5 top-5">
-        <DataRand />
+      <div className="absolute bottom-5 right-5">
+        <Time />
       </div>
+      {/* <div className="absolute right-5 top-5">
+        <DataRand />
+      </div> */}
     </div>
   );
 };

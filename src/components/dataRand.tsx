@@ -11,7 +11,7 @@ const DataRand = () => {
 
   return <div>
     <div className="border-2 border-white p-2 ">
-        <div className="">{nums[0]}</div>
+        <div className="text-white">{nums[0]}</div>
     </div>
   </div>;
 };

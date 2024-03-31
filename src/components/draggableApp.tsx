@@ -118,7 +118,7 @@ const DraggableApp = ({
             <div className="border-dotted w-[80%] border-white border-t-[0.4rem]"></div>
             <div className="border-dotted w-full border-white border-t-[0.4rem]"></div>
           </div>
-          <div className="text-white flex justify-center w-[8rem]">-{aplicacionActual.nombre}-</div>
+          <div className="text-white flex justify-center w-[10.5rem]">-{aplicacionActual.nombre}-</div>
           <div className="flex flex-col items-start mx-5 w-[20%] space-y-3">
             {/* <div className="border-dotted w-full border-white border-t-[0.4rem]"></div> */}
             <div className="border-dotted w-[60%] border- border-white border-t-[0.4rem]"></div>

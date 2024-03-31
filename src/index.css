@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes crt-off {
+  0% {
+    
+  }
+  100% {
+    display: block;
+    /* filter: blur(10px) grayscale(100%);
+    transform: scale(1.1); */
+  }
+}
+
 @keyframes degradadoFinal {
   0% {
     opacity: 100;
@@ -16,6 +27,15 @@
     opacity: 0;
     display: none;
   }
+}
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./fonts/Web437_Cordata_PPC-21.woff') format('woff');
+}
+
+.custom-font {
+  font-family: 'CustomFont', sans-serif;
 }
 
 .selector {

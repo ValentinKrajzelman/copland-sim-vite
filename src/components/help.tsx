@@ -6,8 +6,8 @@ const Help = () => {
   
   const [pregunta, setPregunta] = useState({
     indice: 0 ,
-    pregunta: 'Bienvenido!',
-    respuesta:  'Preparate para la ultima experiencia digital, en "Pregunta en la red" vas a poder surfear la red y hacer cualquier consulta que tengas. Y la red va a elegir de un sinfin de posibilidades la que necesitas.',
+    pregunta: 'Welcome!',
+    respuesta:  "Get ready for the ultimate digital experience. In 'Ask the wired' you'll be able to surf the web and make any inquiries you have. And the web will choose from a myriad of possibilities the one you need.",
   });
   
   return (
